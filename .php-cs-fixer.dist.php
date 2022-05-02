@@ -2,12 +2,12 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
-        __DIR__ . '/app',
-        __DIR__ . '/config',
-        __DIR__ . '/database/factories',
-        __DIR__ . '/database/seeders',
-        __DIR__ . '/routes',
-        __DIR__ . '/tests',
+        __DIR__ . '/src/app',
+        __DIR__ . '/src/config',
+        __DIR__ . '/src/database/factories',
+        __DIR__ . '/src/database/seeders',
+        __DIR__ . '/src/routes',
+        __DIR__ . '/src/tests',
     ]);
 
 $config = new PhpCsFixer\Config();
