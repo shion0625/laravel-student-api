@@ -3,11 +3,11 @@ FROM php:8.1-fpm-bullseye AS base
 WORKDIR /data
 
 # timezone environment
-ENV TZ=UTC \
+ENV TZ=Asia/Tokyo \
   # locale
-  LANG=en_US.UTF-8 \
-  LANGUAGE=en_US:en \
-  LC_ALL=en_US.UTF-8 \
+  LANG=ja_JP.UTF-8 \
+  LANGUAGE=ja_JP:ja \
+  LC_ALL=ja_JP.UTF-8 \
   # composer environment
   COMPOSER_ALLOW_SUPERUSER=1 \
   COMPOSER_HOME=/composer
@@ -24,8 +24,8 @@ RUN apt-get update \
     libonig-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  && locale-gen en_US.UTF-8 \
-  && localedef -f UTF-8 -i en_US en_US.UTF-8 \
+  && locale-gen ja_JP.UTF-8 \
+  && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 \
   && docker-php-ext-install \
     intl \
     pdo_mysql \
