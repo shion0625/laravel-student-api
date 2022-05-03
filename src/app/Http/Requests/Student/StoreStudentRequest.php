@@ -58,7 +58,7 @@ class StoreStudentRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([
-            'status' => 400,
+            'success' => false,
             'message' => "records create failure",
             'errors' => $validator->errors(),
         ],400);

@@ -116,3 +116,6 @@ php-cs-dry-diff:
 	./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose --diff --dry-run
 php-cs-fix:
 	./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose
+test-seed:
+	docker compose exec app php artisan db:seed
+	docker compose exec app php artisan test

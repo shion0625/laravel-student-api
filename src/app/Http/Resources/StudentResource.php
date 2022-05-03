@@ -19,12 +19,12 @@ final class StudentResource extends JsonResource
             'data' => [
                 'type' => 'student',
                 'student_id' => $this->id,
-                'attributes' =>[
+                'attributes' => [
                     'name' => $this->name,
-                    'age'=>$this->age,
-                    'sex'=>$this->sex,
-                    'email'=>$this->email,
-                    'course'=>$this->course,
+                    'age' => $this->age,
+                    'sex' => $this->sex,
+                    'email' => $this->email,
+                    'course' => $this->course,
                 ],
             ],
         ];
