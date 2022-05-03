@@ -2,12 +2,12 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
-        __DIR__ . '/app',
-        __DIR__ . '/config',
-        __DIR__ . '/database/factories',
-        __DIR__ . '/database/seeders',
-        __DIR__ . '/routes',
-        __DIR__ . '/tests',
+        __DIR__ . '/src/app',
+        __DIR__ . '/src/config',
+        __DIR__ . '/src/database/factories',
+        __DIR__ . '/src/database/seeders',
+        __DIR__ . '/src/routes',
+        __DIR__ . '/src/tests',
     ]);
 
 $config = new PhpCsFixer\Config();
@@ -37,7 +37,7 @@ return $config
         ],
         'not_operator_with_successor_space' => true,
         'blank_line_after_namespace' => true,
-        'final_class' => true,
+        'final_class' => false,
         'date_time_immutable' => true,
         'declare_parentheses' => true,
         'final_public_method_for_abstract_class' => true,
