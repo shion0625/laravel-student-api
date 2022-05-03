@@ -23,6 +23,7 @@ final class ApiController extends Controller
         $student = new Student;
         $student->fill($request->all());
         $student->save();
+
         $student_resource = new StudentResource($student);
         return response()->json([
             'success' => true,

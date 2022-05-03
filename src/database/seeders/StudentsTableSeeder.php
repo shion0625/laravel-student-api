@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -15,6 +15,7 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
+        Student::truncate();
         Student::create([
             'name' => 'kaito',
             'age' => 22,
@@ -28,8 +29,7 @@ class StudentsTableSeeder extends Seeder
             'age' => 30,
             'sex' => 'female',
             'email' => 'yodogawa@gmail.com',
-            'course' => 'c programing'
+            'course' => 'c programming'
         ]);
-
     }
 }

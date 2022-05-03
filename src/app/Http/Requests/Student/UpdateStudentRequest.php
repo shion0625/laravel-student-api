@@ -56,7 +56,7 @@ class UpdateStudentRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([
-            'status' => 400,
+            'success' => false,
             'message' => "records update failure",
             'errors' => $validator->errors(),
         ],400);
