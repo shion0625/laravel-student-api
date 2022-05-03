@@ -33,9 +33,6 @@ jobs:
       - name: Composer Version
         run: docker compose exec -T app composer --version
 
-      - name: Create Laravel Project
-        run: docker compose exec -T app composer create-project --prefer-dist laravel/laravel .
-
       - name: Laravel Version
         run: docker compose exec -T app php artisan --version
 
