@@ -33,17 +33,17 @@ Returns `2xx` on success, or `4xx` or `5xx` (where `x` is a number) on error as 
 
 ### Retrieving user information
 
-|                         |method     |URI
-|---------------------------------------------------------------------------------
-|[Get all user information](all_user.md) | GET | /api/students
-|[Obtain specific user information](specific_user.md)| GET |/api/students/{id}
+|                         | method     | URI
+| ----------------------- | ---------- | -------------------------------------------
+| [Get all user information](all_user.md) | GET | /api/students
+| [Obtain specific user information](specific_user.md)| GET |/api/students/{id}
 
 ### User Registration/Change/Delete
-|                         |method     |URI
-|-------------------------------------------------------------------------------
-|[Register a user](register.md) | POST | /api/students
-|[Update specific user information](update.md)| PUT | /api/students/{id}
-|[Delete a specific user](delete.md) | DELETE | /api/students/{id}
+|                         | method     | URI
+| ----------------------- | ---------- | ------------------------------------------
+| [Register a user](register.md) | POST | /api/students
+| [Update specific user information](update.md) | PUT | /api/students/{id}
+| [Delete a specific user](delete.md) | DELETE | /api/students/{id}
 
 ## Main Reference Site
 

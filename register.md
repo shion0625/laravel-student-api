@@ -11,12 +11,12 @@ POST /api/students
 ### Parameters
 
 | place    | optionality | name | contents
-|-------------------------------------------------------------------
-|text | require | name | Name of the user you wish to register
-|text | require | age | age of the user you wish to register
-|text | require | sex | sex of the user you wish to register
-|text | require | email | email of the user you wish to register
-|text | require | course | course of the user you wish to register
+|--------- | ----------- | ---- | ----------------------------------
+|text | require | `name` | Name of the user you wish to register
+|text | require | `age` | age of the user you wish to register
+|text | require | `sex` | sex of the user you wish to register
+|text | require | `email` | email of the user you wish to register
+|text | require | `course` | course of the user you wish to register
 
 ### Example use
 
