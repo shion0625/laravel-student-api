@@ -5,20 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Http\Resources\StudentResource;
+use App\Http\Requests\Student\StoreStudentRequest;
 
 final class ApiController extends Controller
 {
     public function getAllStudents() {
         $student_resource = StudentResource::collection(Student::all());
-        return response($student_resource, 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'list success',
+            $student_resource
+        ], 200);
     }
 
     public function createStudent(Request $request) {
         $student = new Student;
         $student->fill($request->all());
         $student->save();
+        $student_resource = new StudentResource($student);
         return response()->json([
-            "message" => "student record created"
+            'success' => true,
+            "message" => "student record created",
+            $student_resource
         ], 201);
     }
 
@@ -26,9 +34,14 @@ final class ApiController extends Controller
         if(Student::where('id',$id)->exists()){
             $student = Student::find($id);
             $student_resource = new StudentResource($student);
-            return response($student_resource, 200);
+            return response()->json([
+                'success' => true,
+                'message' => 'get student success',
+                $student_resource
+            ], 200);
         } else{
             return response()->json([
+                'success' => false,
                 "message" => "Student not found"
             ], 404);
         }
@@ -43,11 +56,15 @@ final class ApiController extends Controller
             $student->email = null === $request->email ? $student->email : $request->email;
             $student->course = null === $request->course ? $student->course : $request->course;
             $student->save();
+            $student_resource = new StudentResource($student);
             return response()->json([
-                "message" => "records update successfully"
-            ],200);
+                'success' => true,
+                'message' => 'records update successfully',
+                $student_resource
+            ], 200);
         } else{
             return response()->json([
+                'success' => false,
                 "message" => "Student not found"
             ], 404);
         }
@@ -57,11 +74,15 @@ final class ApiController extends Controller
         if(Student::where('id', $id)->exists()) {
             $student = Student::find($id);
             $student->delete();
+            $student_resource = new StudentResource($student);
             return response()->json([
-            "message" => "records deleted"
+                'success' => true,
+                'message' => 'records delete successfully',
+                $student_resource
             ], 202);
         } else {
             return response()->json([
+            'success' => false,
             "message" => "Student not found"
             ], 404);
         }
