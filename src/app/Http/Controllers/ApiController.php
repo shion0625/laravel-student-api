@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Http\Resources\StudentResource;
 
-class ApiController extends Controller
+final class ApiController extends Controller
 {
     public function getAllStudents() {
         $student_resource = StudentResource::collection(Student::all());
@@ -37,11 +37,11 @@ class ApiController extends Controller
     public function updateStudent(Request $request, $id) {
         if(Student::where('id',$id)->exists()){
             $student = Student::find($id);
-            $student->name = is_null($request->name) ? $student->name : $request->name;
-            $student->age = is_null($request->age) ? $student->age : $request->age;
-            $student->sex = is_null($request->sex) ? $student->sex : $request->sex;
-            $student->email = is_null($request->email) ? $student->email : $request->email;
-            $student->course = is_null($request->course) ? $student->course : $request->course;
+            $student->name = null === $request->name ? $student->name : $request->name;
+            $student->age = null === $request->age ? $student->age : $request->age;
+            $student->sex = null === $request->sex ? $student->sex : $request->sex;
+            $student->email = null === $request->email ? $student->email : $request->email;
+            $student->course = null === $request->course ? $student->course : $request->course;
             $student->save();
             return response()->json([
                 "message" => "records update successfully"
