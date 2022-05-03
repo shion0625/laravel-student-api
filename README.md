@@ -1,6 +1,6 @@
 # laravel-student-api
 
-use this [API](https://students.shion0625.site/)
+use this [https://students.shion0625.site/](https://students.shion0625.site/)
 ## Introduction
 
 RESTful API in Laravel PHP.
