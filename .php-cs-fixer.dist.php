@@ -40,7 +40,7 @@ return $config
         'final_class' => true,
         'date_time_immutable' => true,
         'declare_parentheses' => true,
-        'final_public_method_for_abstract_class' => true,
+        'final_public_method_for_abstract_class' => false,
         'mb_str_functions' => true,
         'simplified_if_return' => true,
         'simplified_null_return' => true,

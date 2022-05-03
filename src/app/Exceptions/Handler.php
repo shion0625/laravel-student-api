@@ -43,8 +43,52 @@ final class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (HttpException $e, $request) {
+            if ($request->is('api/*')) {
+                $title = '';
+                $detail = '';
+
+                switch ($e->getStatusCode()) {
+                    case 401:
+                        $title = __('Unauthorized');
+                        $detail =  __('Unauthorized');
+                        break;
+                    case 403:
+                        $title = __('Forbidden');
+                        $detail = __($e->getMessage() ?: 'Forbidden');
+                        break;
+                    case 404:
+                        $title = __('Not Found');
+                        $detail = __('Not Found');
+                        break;
+                    case 419:
+                        $title = __('Page Expired');
+                        $detail = __('Page Expired');
+                        break;
+                    case 429:
+                        $title = __('Too Many Requests');
+                        $detail = __('Too Many Requests');
+                        break;
+                    case 500:
+                        $title = __('Server Error');
+                        $detail = __('Server Error');
+                        break;
+                    case 503:
+                        $title = __('Service Unavailable');
+                        $detail = __('Service Unavailable');
+                        break;
+                    default:
+                        return;
+                }
+
+                return response()->json([
+                    'title' => $title,
+                    'status' => $e->getStatusCode(),
+                    'detail' => $detail,
+                ], $e->getStatusCode(), [
+                    'Content-Type' => 'application/problem+json',
+                ]);
+            }
         });
     }
 }
