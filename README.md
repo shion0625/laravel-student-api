@@ -4,9 +4,11 @@
 
 RESTful API in Laravel PHP.
 
-## Reference Site
+## Main Reference Site
 
-- Read this [wiki](https://www.twilio.com/blog/building-and-consuming-a-restful-api-in-laravel-php-jp).
+- see this [main](https://www.twilio.com/blog/building-and-consuming-a-restful-api-in-laravel-php-jp).
+- see this [validate](https://yama-weblog.com/create-validation-class-in-laravel-without-using-controller-class/).
+- see this [passport](https://yama-weblog.com/create-validation-class-in-laravel-without-using-controller-class/).
 
 # docker-laravel 🐳
 
