@@ -22,7 +22,6 @@ PUT /api/students/{id}
 
 ```
 PUT https://students.shion0625.site/api/students/1
-
 ```
 
 ### Response

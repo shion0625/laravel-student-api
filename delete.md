@@ -12,7 +12,6 @@ DELETE /api/students/{id}
 
 ```
 DELETE https://students.shion0625.site/api/students/4
-
 ```
 
 ### Response
