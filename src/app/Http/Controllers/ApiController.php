@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Http\Resources\StudentResource;
-use App\Http\Requests\Student\StoreStudentRequest;
+use  App\Http\Requests\Student\StoreStudentRequest;
+use  App\Http\Requests\Student\UpdateStudentRequest;
 
 final class ApiController extends Controller
 {
@@ -18,7 +19,7 @@ final class ApiController extends Controller
         ], 200);
     }
 
-    public function createStudent(Request $request) {
+    public function createStudent(StoreStudentRequest $request) {
         $student = new Student;
         $student->fill($request->all());
         $student->save();
@@ -36,7 +37,7 @@ final class ApiController extends Controller
             $student_resource = new StudentResource($student);
             return response()->json([
                 'success' => true,
-                'message' => 'get student success',
+                'message' => 'get student successfully',
                 $student_resource
             ], 200);
         } else{
@@ -47,7 +48,7 @@ final class ApiController extends Controller
         }
     }
 
-    public function updateStudent(Request $request, $id) {
+    public function updateStudent(UpdateStudentRequest $request, $id) {
         if(Student::where('id',$id)->exists()){
             $student = Student::find($id);
             $student->name = null === $request->name ? $student->name : $request->name;
