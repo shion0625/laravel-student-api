@@ -20,7 +20,7 @@ jobs:
 
       - name: Create & Start Docker Containers
         run: |
-          mkdir laravelsrc
+          mkdir src
           docker compose up -d
 
       - name: OS Version
@@ -34,11 +34,8 @@ jobs:
       - name: Composer Version
         run: docker compose exec -T app composer --version
 
-      - name: empty directory
-        run: docker compose exec -T app rm -rf ./
-
       - name: Create Laravel Project
-        run: docker compose exec -T app composer create-project --prefer-dist laravel/laravel ./
+        run: docker compose exec -T app composer create-project --prefer-dist laravel/laravel .
 
       - name: Laravel Version
         run: docker compose exec -T app php artisan --version
